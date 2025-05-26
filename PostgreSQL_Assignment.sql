@@ -1,4 +1,3 @@
--- Question No 01 -->
 INSERT INTO rangers(ranger_id, name, region) VALUES
 (1, 'Alice Green', 'Northern Hills'),
 (2, 'Bob White', 'River Delta'),
@@ -74,6 +73,14 @@ SET conservation_status = 'Historic'
 WHERE EXTRACT(YEAR FROM discovery_date) < 1800;
 
 -- Question No 08 -->
+SELECT 
+  sighting_id,
+  CASE
+    WHEN EXTRACT(HOUR FROM sighting_time) < 12 THEN 'Morning'
+    WHEN EXTRACT(HOUR FROM sighting_time) <= 17 THEN 'Afternoon'
+    ELSE 'Evening'
+  END AS time_of_day
+FROM sightings;
 
 -- Question No 09 -->
 DELETE FROM rangers
